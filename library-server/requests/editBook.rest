@@ -1,0 +1,8 @@
+PUT http://localhost:2123/api/books/5e7fc16bb03b0e02681d75a3 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Kalle kalle",
+    "author": "kalle kalle ite",
+    "descriptio": "star wars"
+}

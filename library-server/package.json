@@ -1,0 +1,29 @@
+{
+  "name": "library-server",
+  "version": "1.0.0",
+  "description": "server for  library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --runInBand",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "teukka",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "date-and-time": "^0.13.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.6"
+  },
+  "devDependencies": {
+    "jest": "^25.2.4",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
