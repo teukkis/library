@@ -18,18 +18,28 @@ const App = () => {
   const emptyBook = {title: '', author:'', description:'', lastEdited:''}
   const emptyWarnings = {saveNew: '', save:'', delete:''}
 
-  //set initial states
+  //set all the books to books' state
   const [books, setBooks] = useState([])
+
+  //set current values of textfields
   const [bookInfo, setBookInfo] = useState({ ...emptyBook })
+
+  //set a book that is being edit
   const [clickedBook, setClickedBook] = useState({ ...emptyBook })
+
+  //gather history of events
   const [history, setHistory] = useState([])
-  const [requiredFields, setRequiredFields] = useState({...emptyWarnings})
+
+  //messages for invalid use of buttons
+  const [requiredFields, setRequiredFields] = useState({...emptyWarnings}) 
   
+
   //function will be passed to Book component
   //set state of bookinfo to match values on textfields 
   const handleNewBook = (event) => {
       setBookInfo({ ...bookInfo, [event.target.name]: [event.target.value] })
   }
+
 
   //function will be passed to Books component
   //set state of bookInfo to match values of book to be edited
@@ -47,6 +57,7 @@ const App = () => {
       window.alert(error)
     }
   }
+
 
   //function will be passed to Book component
   //create a new book object based on values of textfields, and save it to the database
@@ -73,19 +84,19 @@ const App = () => {
           else {
             setRequiredFields({...emptyWarnings, saveNew: 'Fill out all the fields'})
           }
-          
         })
     } catch (error) {
         window.alert(error)
     }
   }
 
+
   //function will be passed to Book component
   //edit a book object based on values of textfields, and save the edited book to the database
   const handleEditBook = (event) => {
     event.preventDefault()
 
-    if (clickedBook.title !== '') {
+    if (clickedBook.title !== '') { //if a book is clicked for editing
 
       const newBookObject = {
         title: bookInfo.title.toString(),
@@ -111,12 +122,13 @@ const App = () => {
     }
   }
 
+
   //function will be passed to Book component
   //delete the book which is displayed on textfields
   //book resourceId has to match with the book to be deleted 
   const handleDelete = () => {
         
-    if (clickedBook.title !== '') {
+    if (clickedBook.title !== '') { //if a book is clicked for editing
       try {
         bookService
         .deleteBook(clickedBook._id)

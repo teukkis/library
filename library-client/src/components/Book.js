@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 const NewBook = ({requiredFields, bookInfo, handleNewBook, addBook, handleEditBook, handleDelete}) => {
     const classes = useStyles();
 
+    //return the time when a book was edited
     const lastEditText = () => {
       if (bookInfo.lastEdited === '') {
         return <Typography variant="caption"></Typography>

@@ -15,6 +15,7 @@ const Books = ({books, handleBookClick}) => {
 
     const classes = useStyles();
 
+    //pass back to App.js an id of a book to be edited
     const handleEditBook = (bookId) => {
       handleBookClick(bookId)
     }
